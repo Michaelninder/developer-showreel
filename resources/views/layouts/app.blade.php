@@ -1,4 +1,4 @@
-<html lang="en" class="{{ session('theme', 'dark') }}"  data-theme="{{ session('theme', 'dark') }}">
+<html lang="en" data-theme="{{ session('theme', 'dark') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,29 +17,22 @@
     @stack('styles')
 </head>
 <body>
-    @if (session('error'))
-        <div class="alert-banner">
-            {{ session('error') }}
-        </div>
-    @endif
     @yield('layout-content')
-
 
     <script src="{{ asset('js/scroll-to-top.js') }}"></script>
     <script>
-
-document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                });
             }
         });
-    }
-});
     </script>
 
     @stack('scripts')
