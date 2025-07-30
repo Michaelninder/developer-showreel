@@ -1,56 +1,98 @@
 :root {
-    --navbar-bg-color: gray;
-    --navbar-link-color: white;
-    --navbar-bottom-border-color: black;
+    --navbar-bg-color: #2c2c2c;
+    --navbar-link-color: #f0f0f0;
+    --navbar-link-active-color: #00ffdd;
+    --navbar-item-bg-color: #383838;
+    --navbar-item-hover-bg-color: #4a4a4a;
+    --navbar-item-active-bg-color: #2a2a2a;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.6);
 }
-
 
 .navbar {
     position: fixed;
-    display:flex;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
     background: var(--navbar-bg-color);
-    display: flex;
-    border-bottom: 2px solid var(--navbar-bottom-border-color);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    z-index: 1000;
+    filter: drop-shadow(0 5px 15px var(--shadow-dark));
 }
 
 .navbar ul {
-    display:flex;
-    padding:0;
+    display: flex;
+    padding: 8px 15px;
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
-    margin-left: 12px;
+    gap: 12px;
+    margin: 0;
+    width: 100%;
 }
 
 .navbar .nav-item {
     list-style-type: none;
-    padding: 10px;
     border-radius: 12px;
-    border: 2px solid black;
-    margin-inline: 2px;
-    background-color: rgba(1, 1, 1, 0.593);
-    transition-duration: 0.45s;
+    background-color: var(--navbar-item-bg-color);
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    box-shadow:
+        inset 3px 3px 5px var(--shadow-dark),
+        inset -3px -3px 5px var(--shadow-light);
 }
 
 .navbar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
     text-decoration: none;
     color: var(--navbar-link-color);
-    transition-duration: 0.45s;
+    transition: color 0.25s ease-in-out;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px var(--shadow-dark);
+}
+
+.navbar .nav-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
 }
 
 .navbar .nav-item:hover {
-    background-color: rgba(255, 255, 255, 0.593);
+    background-color: var(--navbar-item-hover-bg-color);
 }
 
-.navbar .nav-item:hover .nav-link {
-    color: rgba(255, 0, 0, 0.593);
+.navbar .nav-item:hover .nav-icon {
+    transform: scale(1.1);
+}
+
+.navbar .nav-item:active {
+    box-shadow:
+        inset 5px 5px 8px var(--shadow-dark),
+        inset -5px -5px 8px var(--shadow-light);
+    transition-duration: 0.1s;
+}
+
+.navbar .nav-item.active {
+    background-color: var(--navbar-item-active-bg-color);
+    cursor: default;
+    box-shadow:
+        inset 5px 5px 8px var(--shadow-dark),
+        inset -5px -5px 8px var(--shadow-light);
+}
+
+.navbar .nav-item.active .nav-link {
+    color: var(--navbar-link-active-color);
+}
+
+.navbar .nav-item.active .nav-icon {
+    color: var(--navbar-link-active-color);
+    text-shadow: 0 0 10px var(--navbar-link-active-color);
 }
 
 .nav-error {
-    color: red;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: #ff4d4d;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
 }
