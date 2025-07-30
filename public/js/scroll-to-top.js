@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
     const navbar = document.querySelector('.navbar');
 
-    // Function to handle the scroll-to-top button visibility
     const toggleScrollToTopVisibility = () => {
         if (window.scrollY > 200) {
             scrollToTopBtn.classList.remove('hidden');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Function to handle the navbar's scrolled state
     const handleNavbarScroll = () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -20,17 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Attach listeners if the elements exist
     if (scrollToTopBtn) {
         scrollToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         window.addEventListener('scroll', toggleScrollToTopVisibility);
-        toggleScrollToTopVisibility(); // Initial check
+        toggleScrollToTopVisibility();
     }
 
     if (navbar) {
         window.addEventListener('scroll', handleNavbarScroll);
-        handleNavbarScroll(); // Initial check
+        handleNavbarScroll();
     }
 });

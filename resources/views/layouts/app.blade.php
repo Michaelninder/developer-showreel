@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/scroll-to-top.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site-loader.css') }}">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
