@@ -19,21 +19,7 @@
 <body>
     @yield('layout-content')
 
-    <script src="{{ asset('js/scroll-to-top.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navbar = document.querySelector('.navbar');
-            if (navbar) {
-                window.addEventListener('scroll', function () {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="{{ asset('js/scroll-to-top.js') }}" defer></script>
 
     @stack('scripts')
 </body>

@@ -1,17 +1,9 @@
-
 #scroll-to-top-btn {
     color: var(--scroll-to-top-btn-color);
     background-color: var(--scroll-to-top-btn-bg-color);
-
     position: fixed;
     bottom: 15px;
     right: 15px;
-    transition:
-        bottom 0.5s ease,
-        color 0.5s ease,
-        background-color 0.5s ease,
-        box-shadow 0.5s ease,
-        filter 0.5s ease;
     border-radius: 50%;
     padding: 10px;
     border: none;
@@ -22,12 +14,29 @@
     justify-content: center;
     box-shadow: var(--scroll-to-top-btn-shadow);
     filter: drop-shadow(0 2px 5px var(--shadow-dark));
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        bottom 0.3s ease,
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 #scroll-to-top-btn:hover {
     color: var(--scroll-to-top-btn-hover-color);
     background-color: var(--scroll-to-top-btn-hover-bg-color);
-    bottom: 17px;
+    bottom: 17px; /* Slight lift on hover */
     box-shadow: var(--scroll-to-top-btn-hover-shadow);
     filter: drop-shadow(0 5px 15px var(--shadow-dark));
+}
+
+#scroll-to-top-btn.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Disable clicks when hidden */
+    bottom: -50px; /* Move it off-screen for a slide-out effect */
 }
