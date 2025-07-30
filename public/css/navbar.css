@@ -14,6 +14,7 @@
     margin-top: 0;
     transition: all var(--navbar-scoll-transition-duration) ease-in-out;
     border-color: var(--navbar-scrolled-border-color);
+    align-items: center;
 }
 
 .navbar.scrolled {
@@ -30,25 +31,50 @@
     --navbar-logo-gap: 20px;
 }
 
-/* Responsive */
+.navbar .nav-logo {
+    font-family: var(--navbar-logo-font-family),
+        var(--navbar-logo-font-family-fallback);
+    font-size: 1.5rem;
+    color: var(--navbar-link-color);
+    margin-right: var(--navbar-logo-gap);
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease,
+        margin-right var(--navbar-scoll-transition-duration) ease-in-out;
+}
+
+.navbar .nav-logo:hover {
+    color: var(--navbar-link-active-color);
+    transform: scale(1.05);
+    transition-duration: 4s;
+}
+
 @media (max-width: 992px) {
     .navbar.scrolled {
         width: 90%;
     }
 
     .navbar .nav-logo {
-        margin-right: 10px !important;
+        margin-right: 20px;
+    }
+
+    .navbar ul {
+        justify-content: flex-end;
+        flex-grow: 1;
     }
 }
 
 @media (max-width: 768px) {
-    .navbar, .navbar.scrolled {
+    .navbar,
+    .navbar.scrolled {
         width: 100%;
         margin-top: 0;
         border-radius: 0;
         background: var(--navbar-bg-color);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
+        box-shadow: none;
+        border: none;
     }
 
     .navbar .nav-text {
@@ -59,12 +85,21 @@
         padding: 10px 12px;
     }
 
-    .navbar ul {
-        justify-content: center;
+    .navbar .nav-logo {
+        display: none;
+        margin-right: 0;
     }
 
-    .navbar .nav-logo {
-        display: hidden !important;
+    .navbar ul {
+        justify-content: flex-start;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .navbar {
+        padding: 0 10px;
     }
 }
 
@@ -104,24 +139,6 @@
 .navbar .nav-icon {
     font-size: 1.2rem;
     transition: transform 0.3s ease;
-}
-  
-.navbar .nav-logo {
-    font-family: var(--navbar-logo-font-family), var(--navbar-logo-font-family-fallback);
-    font-size: 1.5rem;
-    color: var(--navbar-link-color);
-    transition: color 0.3s ease, transform 0.3s ease, margin-right var(--navbar-scoll-transition-duration) ease-in-out;
-}
-
-
-.navbar .nav-logo {
-    margin-right: var(--navbar-logo-gap);
-}
-  
-.navbar .nav-logo:hover {
-    color: var(--navbar-link-active-color);
-    transform: scale(1.05);
-    transition-duration: 4s;
 }
 
 .theme-switcher:hover {
@@ -163,7 +180,7 @@
 
 .nav-error {
     color: #ff4d4d;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
 }
 
