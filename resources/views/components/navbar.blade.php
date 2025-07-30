@@ -11,10 +11,11 @@ $links = [
         'icon' => 'bi bi-joystick',
     ]
 ];
+$currentTheme = session('theme', 'dark');
 @endphp
 
 <div class="navbar">
-    <ul>
+    <ul class="flex-grow">
         @if ($links)
         @foreach ($links as $link)
         <li class="nav-item{{ $link['route'] === Route::currentRouteName() ? ' active' : '' }}">
@@ -30,4 +31,12 @@ $links = [
         <div class="nav-error">No Nav-Links avaible</div>
         @endif
     </ul>
+    <div class="theme-switcher-container">
+        <form id="theme-switch-form" action="{{ route('theme.switch') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        <button id="theme-toggle" type="button" class="theme-switcher" onclick="document.getElementById('theme-switch-form').submit();">
+            <i class="bi {{ $currentTheme === 'dark' ? 'bi-moon-stars-fill' : 'bi-sun-fill' }}"></i>
+        </button>
+    </div>
 </div>
