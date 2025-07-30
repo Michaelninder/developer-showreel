@@ -4,7 +4,7 @@
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900 dark:text-gray-100">
                 Welcome to my Developer Showreel
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+            <p class="text-lg md:text-xl text-gray-700 dark:text-gray-400">
                 A collection of my projects and experiments, built with Laravel and TailwindCSS.
             </p>
         </div>

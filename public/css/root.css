@@ -32,6 +32,8 @@
 
     --navbar-logo-gap: 200px;
     --navbar-scoll-transition-duration: 0.5s;
+    --spinner-color-light: rgba(0, 0, 0, 0.2);
+    --spinner-color-dark: #007bff;
 }
 
 [data-theme='dark'] {
@@ -60,6 +62,8 @@
     --scroll-to-top-btn-hover-bg-color: #4a4a4a;
     --scroll-to-top-btn-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     --scroll-to-top-btn-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    --spinner-color-light: rgba(255, 255, 255, 0.3);
+    --spinner-color-dark: #00ffdd;
 }
 
 body {
@@ -80,4 +84,12 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+custom-cursor {
+    cursor: none;
+}
+
+custom-cursor *:hover {
+    cursor: none;
 }

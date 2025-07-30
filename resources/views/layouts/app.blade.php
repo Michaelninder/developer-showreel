@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/scroll-to-top.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,8 +18,13 @@
     @stack('styles')
 </head>
 <body>
+    <div id="site-loader">
+        <div class="spinner"></div>
+    </div>
+
     @yield('layout-content')
 
+    <script src="{{ asset('js/site-loader.js') }}" defer></script>
     <script src="{{ asset('js/scroll-to-top.js') }}" defer></script>
 
     @stack('scripts')
