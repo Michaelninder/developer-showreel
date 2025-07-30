@@ -1,0 +1,33 @@
+
+#scroll-to-top-btn {
+    color: var(--scroll-to-top-btn-color);
+    background-color: var(--scroll-to-top-btn-bg-color);
+
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    transition:
+        bottom 0.5s ease,
+        color 0.5s ease,
+        background-color 0.5s ease,
+        box-shadow 0.5s ease,
+        filter 0.5s ease;
+    border-radius: 50%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--scroll-to-top-btn-shadow);
+    filter: drop-shadow(0 2px 5px var(--shadow-dark));
+}
+
+#scroll-to-top-btn:hover {
+    color: var(--scroll-to-top-btn-hover-color);
+    background-color: var(--scroll-to-top-btn-hover-bg-color);
+    bottom: 17px;
+    box-shadow: var(--scroll-to-top-btn-hover-shadow);
+    filter: drop-shadow(0 5px 15px var(--shadow-dark));
+}

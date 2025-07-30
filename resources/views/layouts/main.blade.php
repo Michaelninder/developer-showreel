@@ -5,4 +5,6 @@
         @yield('content')
     </div>
     @include('components.footer')
+
+    @include('components.scroll-to-top')
 @endsection

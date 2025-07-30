@@ -10,23 +10,13 @@ $links = [
         'name' => 'test',
         'icon' => 'bi bi-joystick',
     ],
-    [
-        'route' => 'github.user',
-        'params' => ['username' => 'fabianternis'],
-        'name' => 'github',
-        'icon' => 'bi bi-github',
-    ],
-    [
-        'route' => 'discord.login',
-        'name' => 'discord',
-        'icon' => 'bi bi-discord',
-    ]
 ];
 $currentTheme = session('theme', 'dark');
 @endphp
 
 <div class="navbar">
     <ul class="flex-grow">
+        <li class="nav-logo"><a href="{{ route('pages.lander') }}">fabianternis.dev</a></li>
         @if ($links)
         @foreach ($links as $link)
         <li class="nav-item{{ $link['route'] === Route::currentRouteName() ? ' active' : '' }}">
