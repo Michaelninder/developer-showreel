@@ -24,7 +24,7 @@
             'route' => 'test4',
             'name' => 'test4',
             'icon' => 'bi bi-joystick',
-        ],
+        ],/*
         [
             'route' => 'test5',
             'name' => 'test5',
@@ -49,7 +49,7 @@
             'route' => 'test9',
             'name' => 'test',
             'icon' => 'bi bi-joystick',
-        ],
+        ],*/
     ];
 @endphp
 
