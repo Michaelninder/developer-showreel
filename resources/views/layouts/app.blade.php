@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 </head>
 <body">
+    @if (session('error'))
+        <div class="alert-banner">
+            {{ session('error') }}
+        </div>
+    @endif
     @yield('layout-content')
 </body>
 </html>

@@ -9,6 +9,17 @@ $links = [
         'route' => 'test',
         'name' => 'test',
         'icon' => 'bi bi-joystick',
+    ],
+    [
+        'route' => 'github.user',
+        'params' => ['username' => 'fabianternis'],
+        'name' => 'github',
+        'icon' => 'bi bi-github',
+    ],
+    [
+        'route' => 'discord.login',
+        'name' => 'discord',
+        'icon' => 'bi bi-discord',
     ]
 ];
 $currentTheme = session('theme', 'dark');
@@ -19,7 +30,7 @@ $currentTheme = session('theme', 'dark');
         @if ($links)
         @foreach ($links as $link)
         <li class="nav-item{{ $link['route'] === Route::currentRouteName() ? ' active' : '' }}">
-            <a href="{{ route($link['route']) }}" class="nav-link{{ $link['route'] === Route::currentRouteName() ? ' active' : '' }}">
+            <a href="{{ route($link['route'], $link['params'] ?? []) }}" class="nav-link{{ $link['route'] === Route::currentRouteName() ? ' active' : '' }}">
                 @if($link['icon'])
                     <i class="nav-icon {{ $link['icon'] }}"></i>
                 @endif
