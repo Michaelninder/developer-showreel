@@ -1,12 +1,13 @@
 const scrollToTopBtn = document.getElementById('scoll-to-top-btn');
+const navbar = document.querySelector('.navbar');
 
-document.addEventListener('click', scrollToTopBtn) {
+document.addEventListener('click', scrollToTopBtn = {
     window.scrollY = 0;
-};
+    navbar.classList.remove('scrolled');
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.querySelector('.navbar');
     if (navbar) {
         window.addEventListener('scroll', function () {
             if (window.scrollY > 50) {
