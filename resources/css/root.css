@@ -45,7 +45,7 @@
     --footer-social-icon-hover-color: #007bff;
 }
 
-[data-theme='dark'] {
+.dark, [dark], [data-theme="dark"] {
     --navbar-bg-color: #2c2c2c;
     --navbar-link-color: #f0f0f0;
     --navbar-link-active-color: #00ffdd;
