@@ -27,7 +27,7 @@ function onMouseHover() {
     scale: 4,
   });
 }
-
+  
 function onMouseHoverOut() {
   gsap.to($bigBall, {
     duration: 0.45,

@@ -3,6 +3,7 @@
 return [
     'lander' => 'Lander',
     'test' => 'test',
-    'github' => 'GitHub',
-    'discord' => 'Discord',
+    'test2' => '2nd Test',
+    'test3' => 'another item',
+    'test4' => 'test4',
 ];

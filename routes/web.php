@@ -16,3 +16,5 @@ Route::get('/test8', [PageController::class, 'lander'])->name('test8');
 Route::get('/test9', [PageController::class, 'lander'])->name('test9');
 
 Route::post('/theme-switch', [ThemeController::class, 'switchTheme'])->name('theme.switch');
+
+Route::view('/terminal', 'components.terminal');
