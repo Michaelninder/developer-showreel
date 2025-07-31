@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('layout-content')
-    @include('components.navbar')
+@include('components.cursor')
+@include('components.navbar')
     <div>
         @yield('content')
     </div>

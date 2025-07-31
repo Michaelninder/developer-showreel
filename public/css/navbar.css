@@ -15,6 +15,7 @@
     transition: all var(--navbar-scoll-transition-duration) ease-in-out;
     border-color: var(--navbar-scrolled-border-color);
     align-items: center;
+    cursor: crosshair !important;
 }
 
 .navbar.scrolled {

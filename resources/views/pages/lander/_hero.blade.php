@@ -1,4 +1,4 @@
-<div class="w-full min-h-screen flex items-center justify-center text-center bg-gray-50 dark:bg-gray-800">
+<div class="w-full min-h-screen flex items-center justify-center text-center bg-gray-50 dark:bg-gray-800 custom-cursor">
     <section id="hero" class="w-full">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900 dark:text-gray-100">

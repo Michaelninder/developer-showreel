@@ -51,6 +51,7 @@
             'icon' => 'bi bi-joystick',
         ],*/
     ];
+
 @endphp
 
 <div class="navbar">
