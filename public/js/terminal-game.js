@@ -2,9 +2,18 @@ const outputElement = document.getElementById('output');
 const commandInput = document.getElementById('commandInput');
 const promptElement = document.getElementById('prompt');
 let currentDirectory = '~';
+let awaitingPasswordInput = false;
+let sshHost = '';
+let sshPasswordPromptOngoing = false;
 
-function updatePrompt() {
-  promptElement.textContent = `${currentUsername}@fabianternis.dev ${currentDirectory} %`;
+function updatePrompt(extended) {
+  if (extended === 'password') {
+    promptElement.textContent = 'Password: ';
+    commandInput.type = 'password';
+  } else {
+    promptElement.textContent = `${currentUsername}@fabianternis.dev ${currentDirectory} %`;
+    commandInput.type = 'text';
+  }
 }
 
 const commands = {};
@@ -31,6 +40,11 @@ function printToTerminal(text, type = 'output') {
 }
 
 function runCommand(commandLine) {
+  if (sshPasswordPromptOngoing) {
+    handleSshPasswordInput(commandLine);
+    return;
+  }
+
   printToTerminal(`${promptElement.textContent} ${commandLine}`, 'prompt-input');
   const [command, ...args] = commandLine.split(' ');
   const fullCommand = commands[command] || hiddenCommands[command];
@@ -41,6 +55,22 @@ function runCommand(commandLine) {
   } else {
     printToTerminal(`Command not found: ${command}`, 'error');
   }
+}
+
+function handleSshPasswordInput(password) {
+  printToTerminal('********');
+  printToTerminal('Authenticating...');
+
+  if (password === 'mysecretpassword') {
+    printToTerminal('Authentication successful!');
+    printToTerminal(`Connected to ${sshHost}.`);
+  } else {
+    printToTerminal('Authentication failed. Access denied.');
+  }
+
+  sshPasswordPromptOngoing = false;
+  sshHost = '';
+  updatePrompt();
 }
 
 registerCommand('help', () => {
@@ -75,7 +105,6 @@ registerCommand('cd', (args) => {
     if (currentDirectory === '~') {
       currentDirectory = '/';
     } else if (currentDirectory === '/') {
-      // Stay at root
     } else {
       const parts = currentDirectory.split('/');
       parts.pop();
@@ -109,6 +138,29 @@ registerCommand(
   },
   true,
 );
+
+registerCommand('ssh', (args) => {
+  const [userHost] = args;
+  if (!userHost) {
+    printToTerminal('Usage: ssh [user@]host');
+    return;
+  }
+
+  let sshUserName = currentUsername;
+
+  if (userHost.includes('@')) {
+    [sshUserName, sshHost] = userHost.split('@');
+  } else {
+    sshHost = userHost;
+  }
+
+  printToTerminal(`Connecting to ${sshUserName}@${sshHost}...`);
+  printToTerminal(`The authenticity of host '${sshHost}' can't be established.`);
+  printToTerminal('Are you sure you want to continue connecting (yes/no/[fingerprint])?');
+
+  sshPasswordPromptOngoing = true;
+  updatePrompt('password');
+});
 
 commandInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
