@@ -24,6 +24,7 @@
 
         <div class="footer-section text-center md:text-left">
             <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Connect With Me</h4>
+            <p class="code-comment mb-4">// also on side (social-bar)</p>
             <div class="flex justify-center md:justify-start space-x-4">
                 <a href="https://github.com/michaelninder" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl text-gray-600 dark:text-gray-400 hover:text-blue-500" title="GitHub">
                     <i class="bi bi-github"></i>

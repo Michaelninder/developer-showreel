@@ -2,6 +2,8 @@
 
 :root {
     --navbar-scrolled-backdrop-blur: 4px;
+    --navbar-logo-gap: 200px;
+    --navbar-scoll-transition-duration: 0.5s;
 }
 :root {
     --navbar-bg-color: #f0f0f0;
@@ -31,9 +33,6 @@
     --scroll-to-top-btn-hover-bg-color: #d0d0d0;
     --scroll-to-top-btn-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     --scroll-to-top-btn-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-
-    --navbar-logo-gap: 200px;
-    --navbar-scoll-transition-duration: 0.5s;
 
     --spinner-color-light: rgba(0, 0, 0, 0.2);
     --spinner-color-dark: #007bff;
@@ -130,4 +129,143 @@ body::-webkit-scrollbar {
 ::selection {
     color: var(--body-bg-color);
     background: var(--body-text-color);
+}
+
+
+
+
+
+
+
+
+
+/* AUTH Varibles */
+
+:root {
+    --auth-modal-bg-color: rgba(255, 255, 255, 0.2);
+    --auth-modal-border-radius: 15px;
+    --auth-modal-padding: 30px;
+    --auth-modal-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --auth-modal-backdrop-filter: blur(10px);
+    --auth-modal-border: 1px solid rgba(255, 255, 255, 0.18);
+    --auth-modal-gap: 20px;
+    --auth-modal-max-width: 400px;
+    --auth-modal-text-color: var(--body-text-color);
+
+    --auth-modal-close-btn-top: 15px;
+    --auth-modal-close-btn-right: 15px;
+    --auth-modal-close-btn-font-size: 1.5rem;
+    --auth-modal-close-btn-color: var(--body-text-color);
+    --auth-modal-close-btn-padding: 5px;
+    --auth-modal-close-btn-border-radius: 50%;
+    --auth-modal-close-btn-transition: all 0.2s ease-in-out;
+    --auth-modal-close-btn-hover-color: var(--navbar-link-active-color);
+    --auth-modal-close-btn-hover-bg-color: rgba(0, 0, 0, 0.05);
+
+    --auth-modal-title-font-family: 'Titillium Web', sans-serif;
+    --auth-modal-title-font-size: 2.2rem;
+    --auth-modal-title-margin-bottom: 15px;
+    --auth-modal-title-color: var(--body-text-color);
+
+    --auth-form-gap: 15px;
+    --auth-form-label-font-size: 0.95rem;
+    --auth-form-label-color: var(--body-text-color);
+
+    --auth-form-input-padding: 10px 15px;
+    --auth-form-input-border: 1px solid rgba(0, 0, 0, 0.1);
+    --auth-form-input-border-radius: 8px;
+    --auth-form-input-bg-color: rgba(255, 255, 255, 0.7);
+    --auth-form-input-text-color: var(--body-text-color);
+    --auth-form-input-font-size: 1rem;
+    --auth-form-input-transition: all 0.3s ease;
+    --auth-form-input-focus-border-color: var(--navbar-link-active-color);
+    --auth-form-input-focus-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+
+    --auth-submit-btn-padding: 12px 20px;
+    --auth-submit-btn-border-radius: 8px;
+    --auth-submit-btn-bg-color: var(--navbar-link-active-color);
+    --auth-submit-btn-text-color: #ffffff;
+    --auth-submit-btn-font-size: 1.1rem;
+    --auth-submit-btn-transition: all 0.3s ease;
+    --auth-submit-btn-margin-top: 10px;
+    --auth-submit-btn-hover-bg-color: #0056b3;
+    --auth-submit-btn-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    --auth-external-gap: 10px;
+    --auth-external-margin-top: 15px;
+    --auth-external-padding: 10px 15px;
+    --auth-external-border: 1px solid rgba(0, 0, 0, 0.1);
+    --auth-external-border-radius: 8px;
+    --auth-external-font-size: 1rem;
+    --auth-external-transition: all 0.3s ease;
+    --auth-external-text-color: var(--body-text-color);
+
+    --auth-discord-bg: #5865f2;
+    --auth-discord-color: #ffffff;
+    --auth-discord-border-color: #5865f2;
+    --auth-discord-hover-bg: #4a57da;
+
+    --auth-github-bg: #333333;
+    --auth-github-color: #ffffff;
+    --auth-github-border-color: #333333;
+    --auth-github-hover-bg: #1a1a1a;
+
+    --auth-twitch-bg: #9146ff;
+    --auth-twitch-color: #ffffff;
+    --auth-twitch-border-color: #9146ff;
+    --auth-twitch-hover-bg: #7a3bd9;
+}
+
+.dark, [dark], [data-theme="dark"] {
+    --auth-modal-bg-color: rgba(44, 44, 44, 0.4);
+    --auth-modal-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --auth-modal-border: 1px solid rgba(255, 255, 255, 0.18);
+    --auth-modal-text-color: var(--body-text-color);
+
+    --auth-modal-close-btn-color: var(--body-text-color);
+    --auth-modal-close-btn-hover-color: var(--navbar-link-active-color);
+    --auth-modal-close-btn-hover-bg-color: rgba(255, 255, 255, 0.05);
+
+    --auth-modal-title-color: var(--body-text-color);
+
+    --auth-form-label-color: var(--body-text-color);
+    --auth-form-input-border: 1px solid rgba(255, 255, 255, 0.2);
+    --auth-form-input-bg-color: rgba(0, 0, 0, 0.3);
+    --auth-form-input-text-color: var(--body-text-color);
+    --auth-form-input-focus-border-color: var(--navbar-link-active-color);
+    --auth-form-input-focus-shadow: 0 0 0 3px rgba(0, 255, 221, 0.25);
+
+    --auth-submit-btn-bg-color: var(--navbar-link-active-color);
+    --auth-submit-btn-text-color: #1a202c;
+    --auth-submit-btn-hover-bg-color: #00b89f;
+    --auth-submit-btn-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+    --auth-external-text-color: var(--body-text-color);
+    --auth-external-border: 1px solid rgba(255, 255, 255, 0.2);
+
+    --auth-discord-bg: #5865f2;
+    --auth-discord-color: #ffffff;
+    --auth-discord-border-color: #5865f2;
+    --auth-discord-hover-bg: #4a57da;
+
+    --auth-github-bg: #f0f6fc;
+    --auth-github-color: #24292e;
+    --auth-github-border-color: #f0f6fc;
+    --auth-github-hover-bg: #d9e2ec;
+
+    --auth-twitch-bg: #9146ff;
+    --auth-twitch-color: #ffffff;
+    --auth-twitch-border-color: #9146ff;
+    --auth-twitch-hover-bg: #7a3bd9;
+}
+
+.dark .code-comment {
+    opacity: 0.66;
+    color: lightgray;
+    font-family: monospace;
+}
+.code-comment {
+    opacity: 0.66;
+    color: gray;
+    font-family: monospace;
 }
