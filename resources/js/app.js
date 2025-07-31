@@ -8,3 +8,4 @@ import '../css/custom-cursor.css';
 import './scroll-to-top.js';
 import './site-loader.js';
 import './custom-cursor.js';
+import './social-bar.js';

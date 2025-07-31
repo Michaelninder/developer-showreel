@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
 :root {
+    --navbar-scrolled-backdrop-blur: 4px;
+}
+:root {
     --navbar-bg-color: #f0f0f0;
     --navbar-link-color: #333;
     --navbar-link-active-color: #007bff;
@@ -16,7 +19,6 @@
     --body-text-color: #212529;
 
     --navbar-scrolled-bg-color: rgba(255, 255, 255, 0.7);
-    --navbar-scrolled-backdrop-blur: 10px;
     --navbar-scrolled-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     --navbar-scrolled-border: 1px solid var(--navbar-scrolled-border-color);
     --navbar-scrolled-border-color: rgba(255, 255, 255, 0.18);
@@ -61,7 +63,6 @@
     --body-text-color: #e2e8f0;
 
     --navbar-scrolled-bg-color: rgba(44, 44, 44, 0.7);
-    --navbar-scrolled-backdrop-blur: 10px;
     --navbar-scrolled-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     --navbar-scrolled-border: 1px solid rgba(255, 255, 255, 0.18);
 

@@ -8,4 +8,5 @@
     @include('components.footer')
 
     @include('components.scroll-to-top')
+    @include('components.social-bar')
 @endsection
