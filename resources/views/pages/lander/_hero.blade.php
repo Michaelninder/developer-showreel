@@ -8,5 +8,9 @@
                 A collection of my projects and experiments, built with Laravel and TailwindCSS.
             </p>
         </div>
+
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <a href="">BAS</a>
+          </button>
     </section>
 </div>
