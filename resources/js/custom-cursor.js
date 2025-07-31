@@ -30,7 +30,7 @@ function onMouseHover() {
 
 function onMouseHoverOut() {
   gsap.to($bigBall, {
-    duration: 0.3,
+    duration: 0.45,
     scale: 1,
   });
 }
@@ -42,6 +42,7 @@ function onMouseOverCustomArea() {
 
 function onMouseOutCustomArea() {
   $cursor.style.opacity = 0;
+  
   document.body.removeEventListener("mousemove", onMouseMove);
 }
 

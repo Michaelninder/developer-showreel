@@ -19,3 +19,9 @@ body .custom-cursor {
 .cursor__ball circle {
     fill: #f7f8fa;
 }
+
+.custom-cursor *:hover,
+.custom-cursor *,
+.custom-cursor {
+    cursor: none !important;
+}
