@@ -1,1 +1,10 @@
 import './bootstrap';
+import '../css/root.css';
+import '../css/navbar.css';
+import '../css/scroll-to-top.css';
+import '../css/site-loader.css';
+import '../css/footer.css';
+import '../css/custom-cursor.css';
+import './scroll-to-top.js';
+import './site-loader.js';
+import './custom-cursor.js';

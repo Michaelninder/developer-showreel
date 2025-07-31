@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 const $cursor = document.querySelector('.cursor');
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');

@@ -1,81 +1,64 @@
 <div class="theme-switcher-container">
     <button id="theme-toggle" type="button" class="theme-switcher">
-        <i
-            class="bi {{ session('theme', 'dark') === 'dark' ? 'bi-moon-stars-fill' : 'bi-sun-fill' }}"
-        ></i>
+        <i class="bi {{ session('theme', 'system') === 'dark' ? 'bi-moon-stars-fill' : (session('theme', 'system') === 'light' ? 'bi-sun-fill' : 'bi-circle-half') }}"></i>
     </button>
 </div>
 
 @push('scripts')
-    <script>
-        document
-            .getElementById('theme-toggle')
-            .addEventListener('click', async function () {
-                const currentTheme =
-                    document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+<script>
+    document.getElementById('theme-toggle').addEventListener('click', async function() {
+        const html = document.documentElement;
+        const themeOrder = ['system', 'dark', 'light'];
+        const currentMode = html.getAttribute('data-theme-mode');
+        const newMode = themeOrder[(themeOrder.indexOf(currentMode) + 1) % themeOrder.length];
 
-                // Update the icon immediately for better UX
-                const icon = this.querySelector('i');
-                icon.classList.remove(
-                    currentTheme === 'dark'
-                        ? 'bi-moon-stars-fill'
-                        : 'bi-sun-fill',
-                );
-                icon.classList.add(
-                    newTheme === 'dark' ? 'bi-moon-stars-fill' : 'bi-sun-fill',
-                );
+        html.setAttribute('data-theme-mode', newMode);
 
-                // Apply the theme to the HTML element
-                document.documentElement.setAttribute('data-theme', newTheme);
+        // Update icon
+        const icon = this.querySelector('i');
+        icon.className = 'bi '; // Reset classes
+        if (newMode === 'dark') {
+            icon.classList.add('bi-moon-stars-fill');
+        } else if (newMode === 'light') {
+            icon.classList.add('bi-sun-fill');
+        } else { // system
+            icon.classList.add('bi-circle-half');
+        }
 
-                // Send an AJAX request to update the session
-                try {
-                    const response = await fetch('{{ route('theme.switch') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        },
-                        body: JSON.stringify({ theme: newTheme }),
-                    });
+        // Apply theme for both Tailwind and custom CSS
+        if (newMode === 'system') {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            html.classList.toggle('dark', prefersDark);
+            html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        } else {
+            const isDark = newMode === 'dark';
+            html.classList.toggle('dark', isDark);
+            html.setAttribute('data-theme', newMode);
+        }
 
-                    if (!response.ok) {
-                        console.error('Failed to update theme on the server.');
-                        // Revert icon and theme if server update fails
-                        document.documentElement.setAttribute(
-                            'data-theme',
-                            currentTheme,
-                        );
-                        icon.classList.remove(
-                            newTheme === 'dark'
-                                ? 'bi-moon-stars-fill'
-                                : 'bi-sun-fill',
-                        );
-                        icon.classList.add(
-                            currentTheme === 'dark'
-                                ? 'bi-moon-stars-fill'
-                                : 'bi-sun-fill',
-                        );
-                    }
-                } catch (error) {
-                    console.error('Error sending theme update:', error);
-                    // Revert icon and theme on network error
-                    document.documentElement.setAttribute(
-                        'data-theme',
-                        currentTheme,
-                    );
-                    icon.classList.remove(
-                        newTheme === 'dark'
-                            ? 'bi-moon-stars-fill'
-                            : 'bi-sun-fill',
-                    );
-                    icon.classList.add(
-                        currentTheme === 'dark'
-                            ? 'bi-moon-stars-fill'
-                            : 'bi-sun-fill',
-                    );
-                }
+        // Update session
+        try {
+            await fetch('{{ route('theme.switch') }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+                body: JSON.stringify({ theme: newMode }),
             });
-    </script>
+        } catch (error) {
+            console.error('Failed to update theme on the server.', error);
+        }
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        const html = document.documentElement;
+        const currentMode = html.getAttribute('data-theme-mode');
+        if (currentMode === 'system') {
+            const isDark = event.matches;
+            html.classList.toggle('dark', isDark);
+            html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        }
+    });
+</script>
 @endpush

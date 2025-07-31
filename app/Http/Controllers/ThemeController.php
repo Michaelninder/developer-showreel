@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rule;
 
 class ThemeController extends Controller
 {
     public function switchTheme(Request $request)
     {
-        $theme = Session::get('theme', 'dark'); // Default to dark
-        $newTheme = $theme === 'dark' ? 'light' : 'dark';
-        Session::put('theme', $newTheme);
+        $request->validate([
+            'theme' => ['required', Rule::in(['light', 'dark', 'system'])],
+        ]);
 
-        return back();
+        Session::put('theme', $request->theme);
+
+        return response()->json(['message' => 'Theme updated successfully.']);
     }
 }
