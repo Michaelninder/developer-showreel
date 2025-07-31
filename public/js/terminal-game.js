@@ -64,34 +64,41 @@ registerCommand('whoami', () => {
 
 registerCommand('cd', (args) => {
   const targetDir = args[0];
-  if (!targetDir) {
-    printToTerminal('Usage: cd <directory>');
+
+  if (!targetDir || targetDir === '.') {
     return;
   }
 
   if (targetDir === '~') {
     currentDirectory = '~';
   } else if (targetDir === '..') {
-    const parts = currentDirectory.split('/');
-    if (parts.length > 1) {
+    if (currentDirectory === '~') {
+      currentDirectory = '/';
+    } else if (currentDirectory === '/') {
+      // Stay at root
+    } else {
+      const parts = currentDirectory.split('/');
       parts.pop();
       currentDirectory = parts.join('/');
       if (currentDirectory === '') {
         currentDirectory = '/';
       }
-    } else if (currentDirectory !== '/') {
-      currentDirectory = '~';
     }
   } else if (targetDir.startsWith('/')) {
-    currentDirectory = targetDir;
-  } else {
-    if (currentDirectory === '~') {
-      currentDirectory = '/' + targetDir;
-    } else if (currentDirectory === '/') {
-      currentDirectory = currentDirectory + targetDir;
-    } else {
-      currentDirectory = currentDirectory + '/' + targetDir;
+    currentDirectory = targetDir.replace(/\/+/g, '/').replace(/\/$/, '');
+    if (currentDirectory === '') {
+      currentDirectory = '/';
     }
+  } else {
+    let newPath;
+    if (currentDirectory === '~') {
+      newPath = '/' + targetDir;
+    } else if (currentDirectory === '/') {
+      newPath = currentDirectory + targetDir;
+    } else {
+      newPath = currentDirectory + '/' + targetDir;
+    }
+    currentDirectory = newPath.replace(/\/+/g, '/').replace(/\/$/, '');
   }
 });
 
