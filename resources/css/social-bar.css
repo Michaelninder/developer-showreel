@@ -1,13 +1,13 @@
 #socialToggle {
   position: fixed;
-  right: 20px;
+  right: 12px;
   bottom: 80px;
   width: 50px;
   height: 50px;
-  background-color: var(--navbar-scrolled-bg-color);
-  backdrop-filter: blur(8px);
+  background-color: var(--social-bar-bg-color);
+  backdrop-filter: blur(var(--social-bar-blur));
   border-radius: 50%;
-  box-shadow: var(--scroll-to-top-btn-shadow);
+  box-shadow: var(--social-bar-shadow);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,25 +23,32 @@
   color: var(--body-text-color);
 }
 
+#socialToggle.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  bottom: 10px;
+}
+
 .social-bar {
   position: fixed;
   bottom: 140px;
-  right: 20px;
+  right: 9px;
   display: none;
   flex-direction: column;
   gap: 10px;
   padding: 10px;
-  background: var(--navbar-scrolled-bg-color);
-  border-radius: 15px;
-  box-shadow: var(--scroll-to-top-btn-shadow);
-  backdrop-filter: blur(12px);
+  background: var(--social-bar-bg-color);
+  border-radius: var(--social-bar-border-radius);
+  backdrop-filter: blur(var(--social-bar-blur));
+  box-shadow: var(--social-bar-shadow);
   z-index: 9998;
 }
 
 .social-icon {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--social-bar-icon-bg);
   border-radius: 50%;
   color: var(--body-text-color);
   font-size: 18px;
@@ -50,18 +57,19 @@
   align-items: center;
   position: relative;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .social-icon:hover {
-  transform: scale(1.1);
+  transform: scale(var(--social-bar-icon-hover-scale));
+  color: #fff !important;
 }
 
 .social-icon .tooltip {
   visibility: hidden;
   position: absolute;
   right: 50px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--social-bar-tooltip-bg);
   color: #fff;
   padding: 5px 8px;
   border-radius: 4px;
@@ -79,7 +87,7 @@
 .social-icon.github:hover { background: #333; }
 .social-icon.discord:hover { background: #7289da; }
 .social-icon.youtube:hover { background: #ff0000; }
-.social-icon.tiktok:hover { background: #000; color: #69c9d0; }
+.social-icon.tiktok:hover { background: #000; }
 .social-icon.paypal:hover { background: #003087; }
 .social-icon.email:hover { background: #007bff; }
 

@@ -5,7 +5,7 @@
         return;
     }
 
-    const minLoadTime = 276;
+    const minLoadTime = 475;
     const startTime = Date.now();
 
     const hideLoader = () => {

@@ -5,6 +5,7 @@ import '../css/scroll-to-top.css';
 import '../css/site-loader.css';
 import '../css/footer.css';
 import '../css/custom-cursor.css';
+import '../css/social-bar.css';
 import './scroll-to-top.js';
 import './site-loader.js';
 import './custom-cursor.js';

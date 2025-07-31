@@ -45,6 +45,14 @@
     --footer-section-title-color: #333333;
     --footer-social-icon-color: #6c757d;
     --footer-social-icon-hover-color: #007bff;
+
+    --social-bar-bg-color: rgba(255, 255, 255, 0.3);
+    --social-bar-blur: 12px;
+    --social-bar-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --social-bar-border-radius: 15px;
+    --social-bar-icon-bg: rgba(255, 255, 255, 0.15);
+    --social-bar-icon-hover-scale: 1.1;
+    --social-bar-tooltip-bg: rgba(0, 0, 0, 0.8);
 }
 
 .dark, [dark], [data-theme="dark"] {
@@ -83,6 +91,10 @@
     --footer-section-title-color: #e0e0e0;
     --footer-social-icon-color: #99a3a4;
     --footer-social-icon-hover-color: #00ffdd;
+
+    --social-bar-bg-color: rgba(44, 44, 44, 0.4);
+    --social-bar-icon-bg: rgba(255, 255, 255, 0.1);
+    --social-bar-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 body {
