@@ -24,16 +24,16 @@
 }
 
 #socialToggle.hidden {
-  opacity: 0;
+  opacity: 0.1;
   visibility: hidden;
   pointer-events: none;
-  bottom: 10px;
+  right: -52px;
 }
 
 .social-bar {
   position: fixed;
   bottom: 140px;
-  right: 9px;
+  right: -9px;
   display: none;
   flex-direction: column;
   gap: 10px;
@@ -46,9 +46,9 @@
 }
 
 .social-bar.active {
-    display: flex;
+  display: flex;
+  right: 9px;
 }
-
 
 .social-icon {
   width: 40px;
@@ -89,22 +89,34 @@
   opacity: 1;
 }
 
-.social-icon.github:hover { background: #333; }
-.social-icon.discord:hover { background: #7289da; }
-.social-icon.youtube:hover { background: #ff0000; }
-.social-icon.tiktok:hover { background: #000; }
-.social-icon.paypal:hover { background: #003087; }
-.social-icon.email:hover { background: #007bff; }
+.social-icon.github:hover {
+  background: #333;
+}
+.social-icon.discord:hover {
+  background: #7289da;
+}
+.social-icon.youtube:hover {
+  background: #ff0000;
+}
+.social-icon.tiktok:hover {
+  background: #000;
+}
+.social-icon.paypal:hover {
+  background: #003087;
+}
+.social-icon.email:hover {
+  background: #007bff;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
   #socialToggle {
-      bottom: 60px;
-      right: 15px;
+    bottom: 60px;
+    right: 15px;
   }
 
   .social-bar {
-      bottom: 120px;
-      right: 15px;
+    bottom: 120px;
+    right: 15px;
   }
 }

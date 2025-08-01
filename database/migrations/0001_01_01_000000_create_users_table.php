@@ -12,11 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->uuid('id')->primary();
+            $table->string('username')->unique();
+            $table->string('name_first')->nullable();
+            $table->string('name_last')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('discord_id')->nullable();
+            $table->string('discrod_avatar')->nullable();
+            $table->string('twitch_id')->nullable();
+            $table->string('twitch_username')->nullable();
+            $table->string('github_id')->nullable();
+            $table->string('github_username')->nullable();
+            $table->string('github_avatar')->nullable();
+            $table->enum('role', ['user', 'admin'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
