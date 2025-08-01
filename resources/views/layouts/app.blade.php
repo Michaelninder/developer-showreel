@@ -36,6 +36,8 @@
 
     @yield('layout-content')
 
+    <x-auth-modal />
+
     @stack('scripts')
 </body>
 </html>

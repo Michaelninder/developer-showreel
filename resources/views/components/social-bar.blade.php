@@ -1,4 +1,4 @@
-<div id="socialToggle" class="social-toggle hidden">
+<div id="socialToggle" class="social-toggle">
     <i class="bi bi-share-fill"></i>
 </div>
 

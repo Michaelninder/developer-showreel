@@ -45,6 +45,11 @@
   z-index: 9998;
 }
 
+.social-bar.active {
+    display: flex;
+}
+
+
 .social-icon {
   width: 40px;
   height: 40px;
