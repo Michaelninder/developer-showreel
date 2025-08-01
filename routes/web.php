@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ThemeController;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', [PageController::class, 'lander'])->name('pages.lander');
 Route::get('/test', [PageController::class, 'lander'])->name('test');
@@ -20,6 +21,6 @@ Route::post('/theme-switch', [ThemeController::class, 'switchTheme'])->name('the
 
 Route::view('/terminal', 'components.terminal');
 
-Route::post('/auth/login', [AuthController::class, 'login'])->name('login');
-Route::post('/auth/register', [AuthController::class, 'register'])->name('register');
-Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

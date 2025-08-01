@@ -36,7 +36,8 @@
 
     @yield('layout-content')
 
-    <x-auth-modal />
+    <x-login-modal />
+    <x-registration-modal />
 
     @stack('scripts')
 </body>

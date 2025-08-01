@@ -79,5 +79,17 @@
             <div class="nav-error">No Nav-Links avaible</div>
         @endif
     </ul>
+    <div class="flex items-center">
+        @guest
+            <button data-modal-target="login-modal" class="mr-2 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">Login</button>
+            <button data-modal-target="registration-modal" class="rounded-lg bg-green-500 px-4 py-2 text-white hover:bg-green-600">Register</button>
+        @endguest
+        @auth
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600">Logout</button>
+            </form>
+        @endauth
+    </div>
     @include('components.theme-switcher')
 </div>
