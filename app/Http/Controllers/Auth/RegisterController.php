@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -31,8 +32,6 @@ class RegisterController extends Controller
 
         $user = User::create([
             'username' => $request->username,
-            'name_first' => $request->name_first,
-            'name_last' => $request->name_last,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
