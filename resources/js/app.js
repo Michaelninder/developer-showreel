@@ -13,3 +13,4 @@ import './custom-cursor.js';
 import './social-bar.js';
 import './auth-modal.js';
 import './terminal-game.js';
+import '../css/set-locale.css';

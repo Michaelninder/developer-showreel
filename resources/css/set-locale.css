@@ -1,0 +1,7 @@
+.set-locale-container {
+
+}
+
+.set-locale-container .current-locale:hover {
+    background: var(--navbar-set-locale-hover-bg);
+}

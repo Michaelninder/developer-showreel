@@ -19,8 +19,7 @@
             'route' => 'test3',
             'name' => 'test3',
             'icon' => 'bi bi-joystick',
-        ],
-        [
+        ],        [
             'route' => 'test4',
             'name' => 'test4',
             'icon' => 'bi bi-joystick',
@@ -79,7 +78,7 @@
             <div class="nav-error">No Nav-Links avaible</div>
         @endif
     </ul>
-    <div class="flex items-center">
+    <!--div class="flex items-center">
         @guest
             <button data-modal-target="login-modal" class="mr-2 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">Login</button>
             <button data-modal-target="registration-modal" class="rounded-lg bg-green-500 px-4 py-2 text-white hover:bg-green-600">Register</button>
@@ -90,6 +89,7 @@
                 <button type="submit" class="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600">Logout</button>
             </form>
         @endauth
-    </div>
+    </div-->
+    @include('components.set-locale')
     @include('components.theme-switcher')
 </div>

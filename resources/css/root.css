@@ -52,6 +52,8 @@
     --social-bar-icon-bg: rgba(255, 255, 255, 0.15);
     --social-bar-icon-hover-scale: 1.1;
     --social-bar-tooltip-bg: rgba(0, 0, 0, 0.8);
+
+    --navbar-set-locale-hover-bg: #b4b4b4aa;
 }
 
 .dark, [dark], [data-theme="dark"] {
@@ -94,6 +96,8 @@
     --social-bar-bg-color: rgba(44, 44, 44, 0.4);
     --social-bar-icon-bg: rgba(255, 255, 255, 0.1);
     --social-bar-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+    --navbar-set-locale-hover-bg: #605f5faa;
 }
 
 body {
